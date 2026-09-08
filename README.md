@@ -112,9 +112,6 @@ The API layer never touches the database directly — every request flows throug
 > [!NOTE]
 > This is an academic capstone project — some production concerns are intentionally out of scope.
 
-> [!WARNING]
-> OTP / SMS / 2FA has been intentionally removed, and Docker is intentionally not included.
-
 ---
 
 ## Prerequisites
