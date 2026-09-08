@@ -79,6 +79,7 @@ graph LR
 The API layer never touches the database directly — every request flows through the service layer for business rules (overlap checks, pricing, policy enforcement) before repositories translate it into `DbContext` operations.
 
 ---
+<div align="center">
 
 ## Tech Stack
 
@@ -96,6 +97,8 @@ The API layer never touches the database directly — every request flows throug
 
 <br>
 
+</div>
+
 <div align="center">
 
 <img src="./assets/svg/HardwareReserve-Digital-Ecosystem.svg"
@@ -107,6 +110,8 @@ width="900"/>
 <br>
 
 ---
+<div align="center">
+
 
 ## Core Features
 
@@ -124,6 +129,7 @@ width="900"/>
 | **AI support (optional)** | Gemini-backed assistant with scoped policy and read-only account context |
 
 <br>
+</div>
 
 <div align="center">
 
