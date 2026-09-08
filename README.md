@@ -14,6 +14,12 @@
 [![Tests](https://img.shields.io/badge/tests-xUnit-25A162?style=flat-square&logo=testinglibrary&logoColor=white)](#testing)
 [![Status](https://img.shields.io/badge/status-academic%20project-lightgrey?style=flat-square)](#project-notes)
 
+<br>
+
+<img src="./assets/svg/Animated-System-Loop.svg"
+alt="HardwareReserve Animated System Loop"
+width="900"/>
+
 </div>
 
 <br>
@@ -88,6 +94,18 @@ The API layer never touches the database directly — every request flows throug
 | Routing / HTTP client | React Router · Axios |
 | Styling | TailwindCSS |
 
+<br>
+
+<div align="center">
+
+<img src="./assets/svg/HardwareReserve-Digital-Ecosystem.svg"
+alt="HardwareReserve Digital Ecosystem"
+width="900"/>
+
+</div>
+
+<br>
+
 ---
 
 ## Core Features
@@ -104,6 +122,18 @@ The API layer never touches the database directly — every request flows throug
 | **Analytics** | Dashboard stats endpoint (`/dashboard/stats`) |
 | **Support** | Persistent user / anonymous / admin conversations delivered via SignalR |
 | **AI support (optional)** | Gemini-backed assistant with scoped policy and read-only account context |
+
+<br>
+
+<div align="center">
+
+<img src="./assets/svg/HardwareReserve-Product-Journey.svg"
+alt="HardwareReserve Product Journey"
+width="900"/>
+
+</div>
+
+<br>
 
 ---
 
