@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/server.png" />
+    <link rel="preload" href="/fonts/sahel-semibold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/vazir-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="سرورهای پردازشی را با قیمت شفاف مقایسه کنید، زمان دلخواهتان را رزرو کنید و سرویس را از حساب خود پیگیری کنید."
+    />
+    <meta name="theme-color" content="#081526" />
+    <title>HardwareReserve — سرور مناسب، در زمان مناسب</title>
+    <script>
+      (() => {
+        try {
+          const locale = localStorage.getItem("hardwarereserve.locale") === "en" ? "en" : "fa";
+          document.documentElement.lang = locale;
+          document.documentElement.dir = locale === "fa" ? "rtl" : "ltr";
+          document.documentElement.dataset.locale = locale;
+        } catch {
+          document.documentElement.dataset.locale = "fa";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
