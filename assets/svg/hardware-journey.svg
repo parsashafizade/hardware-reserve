@@ -1,0 +1,636 @@
+<svg
+  width="100%"
+  height="240"
+  viewBox="0 0 900 240"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-labelledby="hr-title hr-desc"
+>
+  <title id="hr-title">HardwareReserve — Animated System Loop</title>
+  <desc id="hr-desc">
+    A premium animated systems diagram for HardwareReserve, a university
+    capstone server reservation platform. ASP.NET Core 8, React 19,
+    PostgreSQL, JWT authentication, overlap-safe reservations, SignalR
+    support, and optional Gemini integration.
+  </desc>
+
+  <defs>
+    <!-- Background -->
+    <linearGradient id="hr-bg" x1="80" y1="10" x2="845" y2="245"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1120"/>
+      <stop offset=".48" stop-color="#0D1526"/>
+      <stop offset="1" stop-color="#09111F"/>
+    </linearGradient>
+
+    <radialGradient id="hr-core-glow" cx="0" cy="0" r="1"
+      gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(450 121) rotate(90) scale(110 250)">
+      <stop stop-color="#22D3EE" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="hr-accent" x1="280" y1="55" x2="625" y2="190"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset=".48" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+
+    <linearGradient id="hr-scan" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#38BDF8" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#38BDF8" stop-opacity=".20"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Grid -->
+    <pattern id="hr-grid" width="30" height="30"
+      patternUnits="userSpaceOnUse">
+      <path d="M30 0H0V30"
+        stroke="#94A3B8" stroke-opacity=".035"/>
+      <circle cx="0" cy="0" r="1"
+        fill="#94A3B8" fill-opacity=".05"/>
+    </pattern>
+
+    <pattern id="hr-micro-grid" width="10" height="10"
+      patternUnits="userSpaceOnUse">
+      <path d="M10 0H0V10"
+        stroke="#38BDF8" stroke-opacity=".04"/>
+    </pattern>
+
+    <filter id="hr-glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+
+    <clipPath id="hr-panel-clip">
+      <rect width="900" height="240" rx="22"/>
+    </clipPath>
+
+    <clipPath id="hr-core-clip">
+      <rect x="312" y="70" width="276" height="100" rx="16"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    .hr-sans {
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Arial, sans-serif;
+    }
+
+    .hr-mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo,
+        Monaco, Consolas, monospace;
+    }
+
+    .hr-reveal {
+      opacity: 0;
+      transform: translateY(5px);
+      animation: hrReveal 850ms cubic-bezier(.2,.8,.2,1) forwards;
+    }
+
+    .hr-reveal-2 {
+      opacity: 0;
+      transform: translateY(5px);
+      animation: hrReveal 850ms 160ms
+        cubic-bezier(.2,.8,.2,1) forwards;
+    }
+
+    .hr-reveal-3 {
+      opacity: 0;
+      transform: translateY(5px);
+      animation: hrReveal 850ms 320ms
+        cubic-bezier(.2,.8,.2,1) forwards;
+    }
+
+    .hr-loop-draw {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: hrLoopDraw 1800ms 380ms
+        cubic-bezier(.2,.7,.2,1) forwards;
+    }
+
+    .hr-core-pulse {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: hrCorePulse 5.6s 2s ease-in-out infinite;
+    }
+
+    .hr-node-pulse {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: hrNodePulse 5s ease-in-out infinite;
+    }
+
+    .hr-node-pulse-delay {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: hrNodePulse 5.8s 2.4s ease-in-out infinite;
+    }
+
+    .hr-ambient {
+      animation: hrAmbient 7s ease-in-out infinite;
+    }
+
+    .hr-scan {
+      animation: hrScan 6.5s 2.5s ease-in-out infinite;
+    }
+
+    .hr-signal {
+      animation: hrSignalVisibility 8.8s 1.6s
+        ease-in-out infinite;
+    }
+
+    @keyframes hrReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes hrLoopDraw {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes hrCorePulse {
+      0%, 70%, 100% {
+        opacity: .08;
+        transform: scale(.96);
+      }
+      82% {
+        opacity: .24;
+        transform: scale(1.05);
+      }
+      90% {
+        opacity: .12;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes hrNodePulse {
+      0%, 76%, 100% {
+        opacity: .3;
+        transform: scale(.88);
+      }
+      84% {
+        opacity: .85;
+        transform: scale(1.2);
+      }
+      92% {
+        opacity: .42;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes hrAmbient {
+      0%, 100% { opacity: .12; }
+      50% { opacity: .38; }
+    }
+
+    @keyframes hrScan {
+      0%, 15% {
+        transform: translateX(-90px);
+        opacity: 0;
+      }
+      26% { opacity: .55; }
+      62% { opacity: .2; }
+      80%, 100% {
+        transform: translateX(300px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes hrSignalVisibility {
+      0%, 10%, 100% { opacity: 0; }
+      16%, 82% { opacity: 1; }
+      90% { opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hr-reveal,
+      .hr-reveal-2,
+      .hr-reveal-3,
+      .hr-loop-draw,
+      .hr-core-pulse,
+      .hr-node-pulse,
+      .hr-node-pulse-delay,
+      .hr-ambient,
+      .hr-scan,
+      .hr-signal {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        stroke-dashoffset: 0 !important;
+      }
+
+      .hr-motion-only {
+        display: none;
+      }
+    }
+  </style>
+
+  <g clip-path="url(#hr-panel-clip)">
+    <!-- Main panel -->
+    <rect width="900" height="240" fill="url(#hr-bg)"/>
+    <rect width="900" height="240" fill="url(#hr-grid)"/>
+    <rect width="900" height="240" fill="url(#hr-core-glow)"/>
+
+    <!-- Editorial framing -->
+    <path d="M26 39H874"
+      stroke="#94A3B8" stroke-opacity=".04"/>
+    <path d="M26 201H874"
+      stroke="#94A3B8" stroke-opacity=".04"/>
+    <path d="M450 24V42"
+      stroke="#64748B" stroke-opacity=".16"/>
+    <path d="M450 198V216"
+      stroke="#64748B" stroke-opacity=".16"/>
+
+    <!-- Header -->
+    <g class="hr-reveal">
+      <circle cx="35" cy="27" r="2.8" fill="#22D3EE"/>
+
+      <text x="46" y="30" class="hr-mono"
+        fill="#64748B" font-size="8.5"
+        font-weight="700" letter-spacing="1">
+        UNIVERSITY CAPSTONE / RESERVATION PLATFORM
+      </text>
+
+      <text x="865" y="30" class="hr-mono"
+        fill="#475569" font-size="8"
+        text-anchor="end" letter-spacing=".8">
+        BUILD · RESERVE · SUPPORT
+      </text>
+    </g>
+
+    <!-- Underlying loop rail -->
+    <path
+      id="hr-loop-path"
+      d="M274 82
+         H294
+         C330 82 333 49 450 49
+         C567 49 570 82 606 82
+         H626
+         C654 82 670 97 670 120
+         C670 143 654 158 626 158
+         H606
+         C570 158 567 191 450 191
+         C333 191 330 158 294 158
+         H274
+         C246 158 230 143 230 120
+         C230 97 246 82 274 82Z"
+      stroke="#334155"
+      stroke-opacity=".2"
+      stroke-width="9"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    <use
+      href="#hr-loop-path"
+      stroke="url(#hr-accent)"
+      stroke-opacity=".56"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="hr-loop-draw"
+    />
+
+    <!-- Structural connector lines -->
+    <g opacity=".55">
+      <path d="M294 82V65"
+        stroke="#64748B" stroke-opacity=".35"
+        stroke-dasharray="2 4"/>
+      <path d="M606 82V65"
+        stroke="#64748B" stroke-opacity=".35"
+        stroke-dasharray="2 4"/>
+      <path d="M294 158V175"
+        stroke="#64748B" stroke-opacity=".35"
+        stroke-dasharray="2 4"/>
+      <path d="M606 158V175"
+        stroke="#64748B" stroke-opacity=".35"
+        stroke-dasharray="2 4"/>
+    </g>
+
+    <!-- 01 / BACKEND -->
+    <g class="hr-reveal-2">
+      <rect x="35" y="53" width="239" height="60" rx="13"
+        fill="#0D1728"
+        stroke="#334155" stroke-opacity=".72"/>
+
+      <rect x="44" y="62" width="31" height="31" rx="8"
+        fill="#0B1627"
+        stroke="#38BDF8" stroke-opacity=".22"/>
+
+      <!-- Server glyph -->
+      <rect x="51" y="68" width="17" height="5" rx="1.4"
+        stroke="#38BDF8" stroke-width="1.1"/>
+      <rect x="51" y="76" width="17" height="5" rx="1.4"
+        stroke="#38BDF8" stroke-width="1.1"/>
+      <rect x="51" y="84" width="17" height="5" rx="1.4"
+        stroke="#38BDF8" stroke-width="1.1"/>
+      <circle cx="54" cy="70.5" r=".7" fill="#22D3EE"/>
+      <circle cx="54" cy="78.5" r=".7" fill="#22D3EE"/>
+      <circle cx="54" cy="86.5" r=".7" fill="#22D3EE"/>
+
+      <text x="86" y="73" class="hr-mono"
+        fill="#38BDF8" font-size="7.8"
+        font-weight="700" letter-spacing=".85">
+        01 / BACKEND
+      </text>
+
+      <text x="86" y="89" class="hr-sans"
+        fill="#E2E8F0" font-size="11.5"
+        font-weight="650">
+        ASP.NET Core 8 API
+      </text>
+
+      <text x="86" y="102" class="hr-sans"
+        fill="#64748B" font-size="8.5">
+        Controllers · Services · Repositories
+      </text>
+
+      <circle cx="274" cy="82" r="2.7" fill="#38BDF8"/>
+      <circle cx="274" cy="82" r="8"
+        fill="#38BDF8" fill-opacity=".06"
+        class="hr-node-pulse"/>
+    </g>
+
+    <!-- 02 / FRONTEND -->
+    <g class="hr-reveal-2">
+      <rect x="626" y="53" width="239" height="60" rx="13"
+        fill="#0D1728"
+        stroke="#334155" stroke-opacity=".72"/>
+
+      <rect x="635" y="62" width="31" height="31" rx="8"
+        fill="#0B1627"
+        stroke="#22D3EE" stroke-opacity=".22"/>
+
+      <!-- UI glyph -->
+      <rect x="642" y="68" width="17" height="20" rx="2.2"
+        stroke="#22D3EE" stroke-width="1.1"/>
+      <path d="M642 73H659"
+        stroke="#22D3EE" stroke-opacity=".65"/>
+      <circle cx="645" cy="70.5" r=".7" fill="#22D3EE"/>
+      <circle cx="648" cy="70.5" r=".7" fill="#22D3EE"/>
+      <rect x="645" y="76" width="5" height="9" rx="1"
+        fill="#22D3EE" fill-opacity=".22"/>
+      <path d="M653 77H656M653 80H656M653 83H656"
+        stroke="#22D3EE" stroke-opacity=".7"
+        stroke-linecap="round"/>
+
+      <text x="677" y="73" class="hr-mono"
+        fill="#67E8F9" font-size="7.8"
+        font-weight="700" letter-spacing=".85">
+        02 / FRONTEND
+      </text>
+
+      <text x="677" y="89" class="hr-sans"
+        fill="#E2E8F0" font-size="11.5"
+        font-weight="650">
+        React 19 + TypeScript
+      </text>
+
+      <text x="677" y="102" class="hr-sans"
+        fill="#64748B" font-size="8.5">
+        Vite · TailwindCSS · Axios
+      </text>
+
+      <circle cx="626" cy="82" r="2.7" fill="#22D3EE"/>
+      <circle cx="626" cy="82" r="8"
+        fill="#22D3EE" fill-opacity=".06"
+        class="hr-node-pulse-delay"/>
+    </g>
+
+    <!-- 04 / RESERVATIONS -->
+    <g class="hr-reveal-3">
+      <rect x="35" y="128" width="239" height="60" rx="13"
+        fill="#0D1728"
+        stroke="#334155" stroke-opacity=".72"/>
+
+      <rect x="44" y="137" width="31" height="31" rx="8"
+        fill="#0B1627"
+        stroke="#3B82F6" stroke-opacity=".22"/>
+
+      <!-- Calendar / booking glyph -->
+      <rect x="51" y="143" width="17" height="18" rx="2"
+        stroke="#60A5FA" stroke-width="1.1"/>
+      <path d="M51 148H68M55 141V145M64 141V145"
+        stroke="#60A5FA" stroke-width="1.1"
+        stroke-linecap="round"/>
+      <path d="M55 152H58M61 152H64M55 156H58"
+        stroke="#60A5FA" stroke-opacity=".7"
+        stroke-linecap="round"/>
+      <path d="M61 156L63 158L67 153"
+        stroke="#60A5FA" stroke-width="1.2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+      <text x="86" y="148" class="hr-mono"
+        fill="#60A5FA" font-size="7.8"
+        font-weight="700" letter-spacing=".75">
+        04 / RESERVATIONS
+      </text>
+
+      <text x="86" y="164" class="hr-sans"
+        fill="#E2E8F0" font-size="11.5"
+        font-weight="650">
+        Booking &amp; Auth Flow
+      </text>
+
+      <text x="86" y="177" class="hr-sans"
+        fill="#64748B" font-size="8.2">
+        JWT · refresh tokens · overlap-safe booking
+      </text>
+
+      <circle cx="274" cy="158" r="2.7" fill="#3B82F6"/>
+    </g>
+
+    <!-- 03 / SUPPORT -->
+    <g class="hr-reveal-3">
+      <rect x="626" y="128" width="239" height="60" rx="13"
+        fill="#0D1728"
+        stroke="#334155" stroke-opacity=".72"/>
+
+      <rect x="635" y="137" width="31" height="31" rx="8"
+        fill="#0B1627"
+        stroke="#38BDF8" stroke-opacity=".22"/>
+
+      <!-- Connected support glyph -->
+      <circle cx="644" cy="153" r="2.6" fill="#38BDF8"/>
+      <circle cx="655" cy="145" r="2.6" fill="#22D3EE"/>
+      <circle cx="655" cy="160" r="2.6" fill="#38BDF8"/>
+      <path d="M646.5 151.5L652.5 146.7
+               M646.5 154.4L652.5 158.7"
+        stroke="#7DD3FC" stroke-opacity=".7"
+        stroke-width="1.1"/>
+
+      <text x="677" y="148" class="hr-mono"
+        fill="#38BDF8" font-size="7.8"
+        font-weight="700" letter-spacing=".75">
+        03 / SUPPORT
+      </text>
+
+      <text x="677" y="164" class="hr-sans"
+        fill="#E2E8F0" font-size="11.5"
+        font-weight="650">
+        SignalR + AI Support
+      </text>
+
+      <text x="677" y="177" class="hr-sans"
+        fill="#64748B" font-size="8.5">
+        Real-time chat · optional Gemini
+      </text>
+
+      <circle cx="626" cy="158" r="2.7" fill="#38BDF8"/>
+    </g>
+
+    <!-- Central HardwareReserve core -->
+    <g class="hr-reveal-3">
+      <rect x="304" y="62" width="292" height="116" rx="21"
+        fill="#091422"
+        stroke="#38BDF8" stroke-opacity=".16"/>
+
+      <rect x="311" y="69" width="278" height="102" rx="16"
+        fill="#0D1829"
+        stroke="#334155" stroke-opacity=".7"/>
+
+      <rect x="320" y="78" width="260" height="84" rx="12"
+        fill="url(#hr-micro-grid)"/>
+
+      <!-- Core pulse halo -->
+      <rect x="320" y="78" width="260" height="84" rx="12"
+        fill="#22D3EE" fill-opacity=".06"
+        class="hr-core-pulse"/>
+
+      <!-- Core label -->
+      <text x="450" y="91" class="hr-mono"
+        text-anchor="middle"
+        fill="#64748B" font-size="7.8"
+        font-weight="700" letter-spacing="1.25">
+        CURRENT PROJECT
+      </text>
+
+      <text x="450" y="116" class="hr-sans"
+        text-anchor="middle"
+        fill="#F8FAFC" font-size="21"
+        font-weight="750" letter-spacing="-.3">
+        HardwareReserve
+      </text>
+
+      <text x="450" y="133" class="hr-sans"
+        text-anchor="middle"
+        fill="#94A3B8" font-size="10">
+        high-performance server reservation platform
+      </text>
+
+      <!-- Technology pills -->
+      <g class="hr-mono" font-size="7.5" font-weight="700">
+        <rect x="353" y="142" width="50" height="15" rx="5"
+          fill="#0B1627" stroke="#38BDF8"
+          stroke-opacity=".22"/>
+        <text x="378" y="152.5" text-anchor="middle"
+          fill="#7DD3FC">.NET 8</text>
+
+        <rect x="409" y="142" width="73" height="15" rx="5"
+          fill="#0B1627" stroke="#22D3EE"
+          stroke-opacity=".22"/>
+        <text x="445.5" y="152.5" text-anchor="middle"
+          fill="#67E8F9">React 19</text>
+
+        <rect x="488" y="142" width="79" height="15" rx="5"
+          fill="#0B1627" stroke="#3B82F6"
+          stroke-opacity=".22"/>
+        <text x="527.5" y="152.5" text-anchor="middle"
+          fill="#93C5FD">PostgreSQL</text>
+      </g>
+
+      <!-- Core live line -->
+      <path d="M410 164H434L440 160L447 167
+               L456 158L463 164H490"
+        stroke="#38BDF8"
+        stroke-opacity=".55"
+        stroke-width="1.1"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+      <circle cx="490" cy="164" r="2.2" fill="#22D3EE"/>
+    </g>
+
+    <!-- Central scan -->
+    <g clip-path="url(#hr-core-clip)" class="hr-motion-only">
+      <rect x="304" y="70" width="56" height="100"
+        fill="url(#hr-scan)"
+        class="hr-scan"/>
+    </g>
+
+    <!-- Loop directional markers -->
+    <g class="hr-reveal-3">
+      <path d="M327 77L333 82L327 87"
+        stroke="#38BDF8" stroke-opacity=".55"
+        stroke-width="1.2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+      <path d="M665 114L670 120L665 126"
+        stroke="#22D3EE" stroke-opacity=".55"
+        stroke-width="1.2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+      <path d="M573 153L567 158L573 163"
+        stroke="#38BDF8" stroke-opacity=".55"
+        stroke-width="1.2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+      <path d="M235 126L230 120L235 114"
+        stroke="#3B82F6" stroke-opacity=".55"
+        stroke-width="1.2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Travelling system signal -->
+    <g class="hr-signal hr-motion-only">
+      <circle r="3.1" fill="#E0F2FE"/>
+      <circle r="8" fill="#22D3EE"
+        fill-opacity=".12" filter="url(#hr-glow)"/>
+
+      <animateMotion
+        dur="8.8s"
+        begin="1.6s"
+        repeatCount="indefinite"
+        keyTimes="0;0.08;0.90;1"
+        keyPoints="0;0;1;1"
+        calcMode="linear">
+        <mpath href="#hr-loop-path"/>
+      </animateMotion>
+    </g>
+
+    <!-- Ambient telemetry -->
+    <g class="hr-ambient">
+      <circle cx="864" cy="95" r="1.5" fill="#38BDF8"/>
+      <circle cx="864" cy="105" r="1.5" fill="#334155"/>
+      <circle cx="864" cy="115" r="1.5" fill="#334155"/>
+
+      <circle cx="36" cy="126" r="1.5" fill="#334155"/>
+      <circle cx="36" cy="136" r="1.5" fill="#22D3EE"/>
+      <circle cx="36" cy="146" r="1.5" fill="#334155"/>
+    </g>
+
+    <!-- Bottom microcopy -->
+    <g class="hr-reveal-3">
+      <text x="450" y="220" class="hr-mono"
+        text-anchor="middle"
+        fill="#475569" font-size="8"
+        letter-spacing=".85">
+        .NET 8 · REACT 19 · POSTGRESQL · JWT AUTH · SIGNALR · OPTIONAL GEMINI
+      </text>
+    </g>
+
+    <!-- Outer border -->
+    <path
+      d="M22 1H878C889.6 1 899 10.4 899 22V218
+         C899 229.6 889.6 239 878 239H22
+         C10.4 239 1 229.6 1 218V22
+         C1 10.4 10.4 1 22 1Z"
+      stroke="#64748B"
+      stroke-opacity=".2"
+    />
+  </g>
+</svg>
