@@ -365,6 +365,31 @@ Every API error follows a single, predictable shape:
 }
 ```
 
+---
+
+## Contributors
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/rezabkhany">
+        <img src="https://github.com/rezabkhany.png" width="80" height="80" style="border-radius:50%;" />
+        <br />
+        <b>Reza Baba Khany</b>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/parsashafizade">
+        <img src="https://github.com/parsashafizade.png" width="80" height="80" style="border-radius:50%;" />
+        <br />
+        <b>Parsa Shafizade</b>
+      </a>
+    </td>
+  </tr>
+</table>
+
+---
+
 <div align="center">
 
 <sub>Built as a university capstone project.</sub>
